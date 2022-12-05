@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#playground {
+    height: 100vh;
+    position: relative;
+    background-color: #59c6d9;
+    overflow: hidden;
+}
+
+#shark{
+    position: absolute;
+    background-color: #d97e59;
+}
+
+.surfer {
+    position: absolute;
+    background-color: #a459d9;
+}
+
+.helicopter{
+    position: absolute;
+    background-color: #d9bd59;
+}
