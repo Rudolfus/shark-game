@@ -5,6 +5,7 @@ class Game {
     this.helicopters = []; // holds instances of helicopters
     this.shark = new Shark();
     this.counter = 0;
+    // this.newLevel = 0;
   }
 
   start() {
@@ -86,9 +87,11 @@ class Game {
 
     if (isCollision) {
       this.counter += 1;
+      surfer.domElm.remove();
+      this.surfers.shift();
       console.log(this.counter);
     }
-    
+
     if (this.counter === 7) {
       console.log("New level!");
     }
@@ -102,9 +105,8 @@ class Game {
       this.shark.height + this.shark.posY > helicopter.posY;
 
     if (isCollision) {
-        location.href = "./gameover.html";
+      location.href = "./gameover.html";
     }
-
   }
 
   removeSurferIfOutside(surfer) {
@@ -119,7 +121,7 @@ class Game {
     if (helicopter.posX > 100 - helicopter.width) {
       helicopter.domElm.remove();
       this.helicopters.shift();
-    } 
+    }
   }
 }
 
@@ -247,14 +249,14 @@ class Helicopter {
     playground.appendChild(this.domElm);
   }
 
-    moveRight() {
-        this.posX += 1;
-        this.domElm.style.left = this.posX + "vw";
-        }
-    // moveLeft() {
-    //     this.posX -= 1;
-    //     this.domElm.style.left = this.posX + "vw";
-    //   }
+  moveRight() {
+    this.posX += 1;
+    this.domElm.style.left = this.posX + "vw";
+  }
+  // moveLeft() {
+  //     this.posX -= 1;
+  //     this.domElm.style.left = this.posX + "vw";
+  //   }
 }
 ////////////////////////////////////// global scope //////////////////////////////////////
 
