@@ -4,13 +4,14 @@ class Game {
     this.surfers = []; // holds instances of surfers
     this.helicopters = []; // holds instances of helicopters
     this.shark = new Shark();
+    this.counter = 0;
   }
 
   start() {
     this.addEventListener();
 
     // new surfers
-    
+
     setInterval(() => {
       const newSurfer = new Surfer();
       this.surfers.push(newSurfer);
@@ -51,7 +52,7 @@ class Game {
 
       this.helicopters.forEach((helicopter) => {
         //move current surfer
-        helicopter.moveDown();
+        helicopter.moveRight();
 
         // detect collisison with current obstacle
         this.detectCollisionHelicopter(helicopter);
@@ -68,14 +69,15 @@ class Game {
         this.shark.moveLeft();
       } else if (event.key === "ArrowRight") {
         this.shark.moveRight();
+      } else if (event.key === "ArrowUp") {
+        this.shark.moveUp();
+      } else if (event.key === "ArrowDown") {
+        this.shark.moveDown();
       }
     });
   }
 
   detectCollisionSurfer(surfer) {
-    
-    let counter = 0;
-
     const isCollision =
       this.shark.posX < surfer.posX + surfer.width &&
       this.shark.posX + this.shark.width > surfer.posX &&
@@ -83,13 +85,13 @@ class Game {
       this.shark.height + this.shark.posY > surfer.posY;
 
     if (isCollision) {
-        counter += 1
+      this.counter += 1;
+      console.log(this.counter);
     }
     
-    if (counter === 7) {
-        console.log("New level!");
-    } 
-    console.log(counter);
+    if (this.counter === 7) {
+      console.log("New level!");
+    }
   }
 
   detectCollisionHelicopter(helicopter) {
@@ -100,9 +102,9 @@ class Game {
       this.shark.height + this.shark.posY > helicopter.posY;
 
     if (isCollision) {
-      console.log("Helicopter detected shark.");
-      //location.href ="https://media.tenor.com/Lhlq72-SMvYAAAAC/lost-the.gif";
+        location.href = "./gameover.html";
     }
+
   }
 
   removeSurferIfOutside(surfer) {
@@ -114,10 +116,10 @@ class Game {
   }
   removeHelicopterIfOutside(helicopter) {
     // ckecking if obstacle has moved out of screen
-    if (helicopter.posY <= 0 - helicopter.height) {
+    if (helicopter.posX > 100 - helicopter.width) {
       helicopter.domElm.remove();
       this.helicopters.shift();
-    }
+    } 
   }
 }
 
@@ -148,15 +150,29 @@ class Shark {
 
   moveLeft() {
     if (this.posX > 0) {
-      this.posX -= 3;
+      this.posX -= 2;
       this.domElm.style.left = this.posX + "vw";
     }
   }
 
   moveRight() {
     if (this.posX < 100) {
-      this.posX += 3;
+      this.posX += 2;
       this.domElm.style.left = this.posX + "vw";
+    }
+  }
+
+  moveUp() {
+    if (this.posY < 90 - this.height) {
+      this.posY += 1;
+      this.domElm.style.bottom = this.posY + "vh";
+    }
+  }
+
+  moveDown() {
+    if (this.posY > 0) {
+      this.posY -= 1;
+      this.domElm.style.bottom = this.posY + "vh";
     }
   }
 }
@@ -210,8 +226,8 @@ class Helicopter {
       return rndInt;
     }
 
-    this.posX = randomIntFromInterval(20, 70);
-    this.posY = 80;
+    this.posX = 10; /*randomIntFromInterval(1, 2);*/
+    this.posY = randomIntFromInterval(10, 70);
 
     this.domElm = null;
 
@@ -231,13 +247,16 @@ class Helicopter {
     playground.appendChild(this.domElm);
   }
 
-  moveDown() {
-    this.posY -= 1;
-    this.domElm.style.bottom = this.posY + "vh";
-  }
+    moveRight() {
+        this.posX += 1;
+        this.domElm.style.left = this.posX + "vw";
+        }
+    // moveLeft() {
+    //     this.posX -= 1;
+    //     this.domElm.style.left = this.posX + "vw";
+    //   }
 }
-
-/////////////////// global scope ///////////////////
+////////////////////////////////////// global scope //////////////////////////////////////
 
 const bondyBite = new Game();
 bondyBite.start();

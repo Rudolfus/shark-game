@@ -20,7 +20,20 @@ body {
     background-color: #a459d9;
 }
 
+
 .helicopter{
     position: absolute;
     background-color: #d9bd59;
+}
+
+#background{
+    height: 100vh;
+    position: relative;
+    background-color: black;
+}
+
+#game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
