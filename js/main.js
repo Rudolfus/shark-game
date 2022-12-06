@@ -90,6 +90,8 @@ class Game {
       surfer.domElm.remove();
       this.surfers.shift();
       console.log(this.counter);
+      document.querySelector("#counter");
+      counter.innerText = this.counter;
     }
 
     if (this.counter === 7) {
@@ -116,6 +118,7 @@ class Game {
       this.surfers.shift();
     }
   }
+
   removeHelicopterIfOutside(helicopter) {
     // ckecking if obstacle has moved out of screen
     if (helicopter.posX > 100 - helicopter.width) {
@@ -123,8 +126,7 @@ class Game {
       this.helicopters.shift();
     }
   }
-  // set countdown
-  // when over, feedback with amount of surfers eaten + link "Still hungry?"
+  
   setTimer() {
     let playtime = 30;
     setInterval(() => {
