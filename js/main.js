@@ -9,20 +9,20 @@ class Game {
   }
 
   start() {
+    this.setTimer();
     this.addEventListener();
 
     // new surfers
-
     setInterval(() => {
       const newSurfer = new Surfer();
       this.surfers.push(newSurfer);
-    }, 3000);
+    }, 4000);
 
     // new helicopters
     setInterval(() => {
       const newHeli = new Helicopter();
       this.helicopters.push(newHeli);
-    }, 5000);
+    }, 4000);
 
     // updating surfers & helicopters
     setInterval(() => {
@@ -123,6 +123,21 @@ class Game {
       this.helicopters.shift();
     }
   }
+  // set countdown
+  // when over, feedback with amount of surfers eaten + link "Still hungry?"
+  setTimer() {
+    let playtime = 30;
+    setInterval(() => {
+      playtime -= 1;
+
+      document.querySelector("#time");
+      time.innerText = playtime;
+
+      if (playtime === 0) {
+        location.href = "./timeout.html";
+      }
+    }, 1000);
+  }
 }
 
 class Shark {
@@ -152,14 +167,14 @@ class Shark {
 
   moveLeft() {
     if (this.posX > 0) {
-      this.posX -= 2;
+      this.posX -= 1;
       this.domElm.style.left = this.posX + "vw";
     }
   }
 
   moveRight() {
     if (this.posX < 100) {
-      this.posX += 2;
+      this.posX += 1;
       this.domElm.style.left = this.posX + "vw";
     }
   }
@@ -212,7 +227,7 @@ class Surfer {
   }
 
   moveDown() {
-    this.posY -= 1;
+    this.posY -= 0.75;
     this.domElm.style.bottom = this.posY + "vh";
   }
 }
@@ -228,8 +243,8 @@ class Helicopter {
       return rndInt;
     }
 
-    this.posX = 10; /*randomIntFromInterval(1, 2);*/
-    this.posY = randomIntFromInterval(10, 70);
+    this.posX = 0; /*randomIntFromInterval(1, 2);*/
+    this.posY = randomIntFromInterval(0, 60);
 
     this.domElm = null;
 
@@ -250,7 +265,7 @@ class Helicopter {
   }
 
   moveRight() {
-    this.posX += 1;
+    this.posX += 0.5;
     this.domElm.style.left = this.posX + "vw";
   }
   // moveLeft() {

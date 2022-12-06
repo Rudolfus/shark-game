@@ -8,6 +8,7 @@ body {
     position: relative;
     background-color: #59c6d9;
     overflow: hidden;
+    background-image: url("");
 }
 
 #shark{
