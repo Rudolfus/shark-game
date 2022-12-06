@@ -39,7 +39,8 @@ body {
     align-items: center;
 }
 
-#background-timeout {
-    position: relative;
-    background-image: ;
+#body-landingpage {
+    margin: 0;
+    padding: 0;
+    background-image: url ("./Bondi Bite landing page.png");
 }
