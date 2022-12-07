@@ -16,13 +16,13 @@ class Game {
     setInterval(() => {
       const newSurfer = new Surfer();
       this.surfers.push(newSurfer);
-    }, 4000);
+    }, 1750);
 
     // new helicopters
     setInterval(() => {
       const newHeli = new Helicopter();
       this.helicopters.push(newHeli);
-    }, 4000);
+    }, 3000);
 
     // updating surfers & helicopters
     setInterval(() => {
@@ -85,6 +85,8 @@ class Game {
       this.shark.posY < surfer.posY + surfer.height &&
       this.shark.height + this.shark.posY > surfer.posY;
 
+    const snackSound = new Audio('./audio/snack-sound.mp3');
+    
     if (isCollision) {
       this.counter += 1;
       surfer.domElm.remove();
@@ -94,6 +96,7 @@ class Game {
       
       document.querySelector("#counter");
       counter.innerText = this.counter;
+      snackSound.play()
     }
 
     if (this.counter === 7) {
@@ -110,7 +113,7 @@ class Game {
 
     if (isCollision) {
       console.log("collision");
-      //location.href = "./gameover.html";
+      location.href = "./gameover.html";
     }
   }
 
@@ -131,7 +134,7 @@ class Game {
   }
   
   setTimer() {
-    let playtime = 30;
+    let playtime = 45;
     setInterval(() => {
       playtime -= 1;
 
@@ -139,7 +142,7 @@ class Game {
       time.innerText = playtime;
 
       if (playtime === 0) {
-        //location.href = "./timeout.html";
+        location.href = "./timeout.html";
       }
     }, 1000);
   }
@@ -186,7 +189,7 @@ class Shark {
   }
 
   moveUp() {
-    if (this.posY < 90 - this.height) {
+    if (this.posY < 65 - this.height) {
       this.posY += 1;
       this.domElm.style.bottom = this.posY + "vh";
     }
@@ -211,8 +214,8 @@ class Surfer {
       return rndInt;
     }
 
-    this.posX = randomIntFromInterval(10, 80);
-    this.posY = 90;
+    this.posX = randomIntFromInterval(30, 70);
+    this.posY = 65;
 
     this.domElm = null;
 
@@ -240,8 +243,8 @@ class Surfer {
 
 class Helicopter {
   constructor() {
-    this.width = 7;
-    this.height = 7;
+    this.width = 8;
+    this.height = 8;
 
     // random startin point
     function randomIntFromInterval(min, max) {
@@ -250,7 +253,7 @@ class Helicopter {
     }
 
     this.posX = 0; /*randomIntFromInterval(1, 2);*/
-    this.posY = randomIntFromInterval(0, 60);
+    this.posY = randomIntFromInterval(0, 50);
 
     this.domElm = null;
 
@@ -271,7 +274,7 @@ class Helicopter {
   }
 
   moveRight() {
-    this.posX += 0.5;
+    this.posX += 1.35;
     this.domElm.style.left = this.posX + "vh";
   }
   // moveLeft() {

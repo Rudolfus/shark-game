@@ -11,21 +11,21 @@ body {
     position: relative;
     background-color: #59c6d9;
     overflow: hidden;
-    background-image: url("/background-game.png");
+    background-image: url("../images/background-game.png");
     background-size: contain;
 }
 
 #shark{
     position: absolute;
     background-color: #d97e59;
-    background-image: url("/fin.png");
+    background-image: url("../images/fin.png");
     background-size: contain;
 }
 
 .surfer {
     position: absolute;
     background-color: #a459d9;
-    background-image: url("/surfer.png");
+    background-image: url("../images/surfer.png");
     background-size: contain;
 }
 
@@ -33,7 +33,7 @@ body {
 .helicopter{
     position: absolute;
     background-color: #d9bd59;
-    background-image: url("/helicopter.png");
+    background-image: url("../images/helicopter.png");
     background-size: contain;
 }
 
@@ -52,7 +52,7 @@ body {
 #body-landingpage {
     margin: 0;
     padding: 0;
-    background-image: url("/landingpage_background.png");
+    background-image: url("../images/landingpage-background.png");
     height: 100vh;
     background-repeat: no-repeat;
     background-position: 50% 50%;
