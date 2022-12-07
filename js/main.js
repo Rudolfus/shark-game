@@ -89,7 +89,9 @@ class Game {
       this.counter += 1;
       surfer.domElm.remove();
       this.surfers.shift();
+
       console.log(this.counter);
+      
       document.querySelector("#counter");
       counter.innerText = this.counter;
     }
@@ -107,7 +109,8 @@ class Game {
       this.shark.height + this.shark.posY > helicopter.posY;
 
     if (isCollision) {
-      location.href = "./gameover.html";
+      console.log("collision");
+      //location.href = "./gameover.html";
     }
   }
 
@@ -121,7 +124,7 @@ class Game {
 
   removeHelicopterIfOutside(helicopter) {
     // ckecking if obstacle has moved out of screen
-    if (helicopter.posX > 100 - helicopter.width) {
+    if (helicopter.posX > 100) {
       helicopter.domElm.remove();
       this.helicopters.shift();
     }
@@ -136,7 +139,7 @@ class Game {
       time.innerText = playtime;
 
       if (playtime === 0) {
-        location.href = "./timeout.html";
+        //location.href = "./timeout.html";
       }
     }, 1000);
   }
@@ -144,8 +147,9 @@ class Game {
 
 class Shark {
   constructor() {
-    this.width = 10;
-    this.height = 10;
+    this.width = 5;
+    this.height = 5;
+    
     this.posX = 50 - this.width * 0.5;
     this.posY = 1;
 
@@ -158,26 +162,26 @@ class Shark {
     this.domElm = document.createElement("div");
 
     this.domElm.id = "shark";
-    this.domElm.style.width = this.width + "vw";
+    this.domElm.style.width = this.width + "vh";
     this.domElm.style.height = this.height + "vh";
     this.domElm.style.bottom = this.posY + "vh";
-    this.domElm.style.left = this.posX + "vw";
+    this.domElm.style.left = this.posX + "vh";
 
     const playground = document.getElementById("playground");
     playground.appendChild(this.domElm);
   }
 
   moveLeft() {
-    if (this.posX > 0) {
+    if (this.posX > 1) {
       this.posX -= 1;
-      this.domElm.style.left = this.posX + "vw";
+      this.domElm.style.left = this.posX + "vh";
     }
   }
 
   moveRight() {
-    if (this.posX < 100) {
+    if (this.posX < 94) {
       this.posX += 1;
-      this.domElm.style.left = this.posX + "vw";
+      this.domElm.style.left = this.posX + "vh";
     }
   }
 
@@ -189,7 +193,7 @@ class Shark {
   }
 
   moveDown() {
-    if (this.posY > 0) {
+    if (this.posY > 1) {
       this.posY -= 1;
       this.domElm.style.bottom = this.posY + "vh";
     }
@@ -198,8 +202,8 @@ class Shark {
 
 class Surfer {
   constructor() {
-    this.width = 10;
-    this.height = 10;
+    this.width = 5;
+    this.height = 5;
 
     // random startin point
     function randomIntFromInterval(min, max) {
@@ -219,10 +223,10 @@ class Surfer {
     this.domElm = document.createElement("div");
 
     this.domElm.className = "surfer";
-    this.domElm.style.width = this.width + "vw";
+    this.domElm.style.width = this.width + "vh";
     this.domElm.style.height = this.height + "vh";
     this.domElm.style.bottom = this.posY + "vh";
-    this.domElm.style.left = this.posX + "vw";
+    this.domElm.style.left = this.posX + "vh";
 
     const playground = document.getElementById("playground");
     playground.appendChild(this.domElm);
@@ -236,8 +240,8 @@ class Surfer {
 
 class Helicopter {
   constructor() {
-    this.width = 10;
-    this.height = 10;
+    this.width = 7;
+    this.height = 7;
 
     // random startin point
     function randomIntFromInterval(min, max) {
@@ -257,10 +261,10 @@ class Helicopter {
     this.domElm = document.createElement("div");
 
     this.domElm.className = "helicopter";
-    this.domElm.style.width = this.width + "vw";
+    this.domElm.style.width = this.width + "vh";
     this.domElm.style.height = this.height + "vh";
     this.domElm.style.bottom = this.posY + "vh";
-    this.domElm.style.left = this.posX + "vw";
+    this.domElm.style.left = this.posX + "vh";
 
     const playground = document.getElementById("playground");
     playground.appendChild(this.domElm);
@@ -268,11 +272,11 @@ class Helicopter {
 
   moveRight() {
     this.posX += 0.5;
-    this.domElm.style.left = this.posX + "vw";
+    this.domElm.style.left = this.posX + "vh";
   }
   // moveLeft() {
   //     this.posX -= 1;
-  //     this.domElm.style.left = this.posX + "vw";
+  //     this.domElm.style.left = this.posX + "vh";
   //   }
 }
 ////////////////////////////////////// global scope //////////////////////////////////////

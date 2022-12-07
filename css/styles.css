@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0;
     padding: 0;
@@ -5,26 +7,34 @@ body {
 
 #playground {
     height: 100vh;
+    width: 100vh;
     position: relative;
     background-color: #59c6d9;
     overflow: hidden;
-    background-image: url("");
+    background-image: url("/background-game.png");
+    background-size: contain;
 }
 
 #shark{
     position: absolute;
     background-color: #d97e59;
+    background-image: url("/fin.png");
+    background-size: contain;
 }
 
 .surfer {
     position: absolute;
     background-color: #a459d9;
+    background-image: url("/surfer.png");
+    background-size: contain;
 }
 
 
 .helicopter{
     position: absolute;
     background-color: #d9bd59;
+    background-image: url("/helicopter.png");
+    background-size: contain;
 }
 
 #background{
@@ -42,5 +52,19 @@ body {
 #body-landingpage {
     margin: 0;
     padding: 0;
-    background-image: url ("./Bondi Bite landing page.png");
+    background-image: url("/landingpage_background.png");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+a {
+    color: #d97e59;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    margin: 85% 46%;
 }
