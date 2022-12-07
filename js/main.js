@@ -94,7 +94,7 @@ class Game {
       
       document.querySelector("#counter");
       counter.innerText = this.counter;
-      snackSound.play()
+      snackSound.play();
     }
   
   }
@@ -107,21 +107,20 @@ class Game {
       this.shark.height + this.shark.posY > helicopter.posY;
 
     if (isCollision) {
-      console.log("collision");
       location.href = "./gameover.html";
     }
   }
 
   removeSurferIfOutside(surfer) {
-    // ckecking if obstacle has moved out of screen
-    if (surfer.posY <= 0 - surfer.height) {
+    // ckecking if surfer has moved out of screen
+    if (surfer.posY < 0 - surfer.height) {
       surfer.domElm.remove();
       this.surfers.shift();
     }
   }
 
   removeHelicopterIfOutside(helicopter) {
-    // ckecking if obstacle has moved out of screen
+    // ckecking if helicopter has moved out of screen
     if (helicopter.posX > 100) {
       helicopter.domElm.remove();
       this.helicopters.shift();
@@ -138,6 +137,7 @@ class Game {
 
       if (playtime === 0) {
         location.href = "./timeout.html";
+        
         let feedback = "";
 
         if (this.counter === 0) {
@@ -263,7 +263,7 @@ class Helicopter {
     }
 
     this.posX = 0; /*randomIntFromInterval(1, 2);*/
-    this.posY = randomIntFromInterval(0, 50);
+    this.posY = randomIntFromInterval(4, 55);
 
     this.domElm = null;
 

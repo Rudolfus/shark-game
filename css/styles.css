@@ -10,23 +10,25 @@ body {
 #playground {
     height: 100vh;
     width: 100vh;
-    position: relative;
-    background-color: #59c6d9;
     overflow: hidden;
     background-image: url("../images/background-game.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#info-box {
+
 }
 
 .info {
-    color: #d97e59;
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
-    font-weight: bold;
+    color: #0aafde;
+    font-family: 'Pacifico';
+    font-size: 30px;
+    font-weight: normal;
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
 }
 
 #shark{
