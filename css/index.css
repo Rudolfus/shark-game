@@ -1,0 +1,176 @@
+a {
+    color: #7fffe0;
+    font-family: 'Pacifico', cursive;
+    font-size: 70px;
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-text-stroke: 0.25px #4ca48f;
+}
+
+#body-landingpage {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/index-background.png");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #555;
+}
+*:before, *:after {
+    box-sizing: border-box;
+}
+.navigation {
+    background: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    overflow: hidden;
+    transition: left 1s;
+    width: 23%;
+    z-index: 100;
+}
+.navigation h1, .navigation span {
+    color: #f8e8cc;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    z-index: 101;
+}
+.navigation span {
+    color: #7fffe0;
+    font-family: sans-serif;
+    font-size: large;
+    line-height: 150%;
+    font-weight: 20px;
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+.navigation h1 a:hover {
+    background: rgba(255, 255, 255, .2);
+}
+.toggle-button {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
+}
+.toggle-button .wolverine {
+    display: inline-block;
+    height: 26px;
+    padding: 0px 0px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    opacity: 0.97;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.toggle-button .wolverine span {
+    display: inline-block;
+    text-transform: uppercase;
+    line-height: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+.toggle-button .wolverine .claws {
+    position: relative;
+    top: -2px;
+    width: 20px;
+    height: 4px;
+    background: #000;
+    display: inline-block;
+}
+.toggle-button .wolverine .claws:before, .toggle-button .wolverine .claws:after {
+    display: block;
+    content: "";
+    height: 4px;
+    width: 20px;
+    background: #000;
+    position: absolute;
+    z-index: -1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: all 0.1s 0.2s, -webkit-transform 0.2s ease;
+    -webkit-transition-delay: ease, 0s;
+    -moz-transition: all 0.1s 0.2s ease, -moz-transform 0.2s ease;
+    -o-transition: all 0.1s 0.2s ease, -o-transform 0.2s ease;
+    transition: all 0.1s 0.2s ease, transform 0.2s ease;
+}
+.toggle-button .wolverine .claws:before {
+    top: 8px;
+}
+.toggle-button .wolverine .claws:after {
+    top: -8px;
+}
+.nav-control {
+    position: absolute;
+    left: -9999px;
+    width: 100%;
+    clip: rect(0, 0, 0, 0);
+}
+.nav-control:checked ~ .navigation {
+    left: 0;
+    opacity: 1;
+    transition: left 0.3s, opacity 0.3s;
+}
+.nav-control:checked ~ .navigation ul li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
+.nav-control:checked ~ .toggle-button .wolverine .claws {
+    -webkit-transition: all 0.1s 0s;
+    -webkit-transition-delay: ease;
+    -moz-transition: all 0.1s 0s ease;
+    -o-transition: all 0.1s 0s ease;
+    transition: all 0.1s 0s ease;
+    background: transparent !important;
+    z-index: 101;
+}
+.nav-control:checked ~ .toggle-button .wolverine .claws:before, .nav-control:checked ~ .toggle-button .wolverine .claws:after {
+    background: #fff;
+    -webkit-transition: all 0.1s ease, -webkit-transform 0.1s 0.2s;
+    -webkit-transition-delay: 0s, ease;
+    -moz-transition: all 0.1s ease, -moz-transform 0.1s 0.2s ease;
+    -o-transition: all 0.1s ease, -o-transform 0.1s 0.2s ease;
+    transition: all 0.1s ease, transform 0.1s 0.2s ease;
+    top: 0;
+    width: 20px;
+}
+.nav-control:checked ~ .toggle-button .wolverine .claws:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+}
+.nav-control:checked ~ .toggle-button .wolverine .claws:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+}

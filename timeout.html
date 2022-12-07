@@ -8,19 +8,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bondy Bite Timeout</title>
+    <title>Bondi Bite Timeout</title>
 
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
 <body>
     
+    <h1 id="feedback">  </h1>
     <div id="background">
         <div>
-            <img src="../images/start-image-beach2.jpeg" alt="game over">
+            <img  id="game-over" src="../images/timeout-background.png" alt="game over">
             <embed src="./audio/waves-timeout.mp3" loop="true" autostart="true" width="2" height="0">
-            <a href="./game.html" id="game-over">Still hungry?</a>
+            <a href="./game.html" id="still-hungry" >Still hungry?</a>
         </div>
     </div>
+
+    <script src="./js/main.js"></script>
+
 </body>
 </html>

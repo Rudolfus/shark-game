@@ -91,17 +91,12 @@ class Game {
       this.counter += 1;
       surfer.domElm.remove();
       this.surfers.shift();
-
-      console.log(this.counter);
       
       document.querySelector("#counter");
       counter.innerText = this.counter;
       snackSound.play()
     }
-
-    if (this.counter === 7) {
-      console.log("New level!");
-    }
+  
   }
 
   detectCollisionHelicopter(helicopter) {
@@ -134,7 +129,7 @@ class Game {
   }
   
   setTimer() {
-    let playtime = 45;
+    let playtime = 30;
     setInterval(() => {
       playtime -= 1;
 
@@ -143,6 +138,21 @@ class Game {
 
       if (playtime === 0) {
         location.href = "./timeout.html";
+        let feedback = "";
+
+        if (this.counter === 0) {
+          feedback = "Weren't you hungry?";
+          // alert(feedback);
+        } else if (this.counter <= 5) {
+          feedback = "The swell wasn't good, hey?";
+          // alert(feedback);
+        } else if (this.counter <= 10) {
+          feedback = "Nice catch dude! 🏄‍♂️ 🦈 ";
+          // alert(feedback);
+        } else if (this.counter <= 20) {
+          feedback = "Wow! You were on FIRE! 🔥 ⚡️ ";
+          // alert(feedback);
+        }
       }
     }, 1000);
   }
@@ -284,5 +294,5 @@ class Helicopter {
 }
 ////////////////////////////////////// global scope //////////////////////////////////////
 
-const bondyBite = new Game();
-bondyBite.start();
+const bondiBite = new Game();
+bondiBite.start();
