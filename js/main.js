@@ -138,38 +138,6 @@ class Game {
 
       if (playtime === 0) {
         location.href = "./timeout.html";
-
-        let feedback = "";
-
-        if (this.counter === 0) {
-          feedback = "Weren't you hungry?";
-          // alert(feedback);
-        } else if (this.counter <= 5) {
-          feedback = "The swell wasn't good, hey?";
-          // alert(feedback);
-        } else if (this.counter <= 10) {
-          feedback = "Nice catch dude! 🏄‍♂️ 🦈 ";
-          // alert(feedback);
-        } else if (this.counter <= 20) {
-          feedback = "Wow! You were on FIRE! 🔥 ⚡️ ";
-          // alert(feedback);
-        }
-
-        // createDomElm() {
-        //   this.domElm = document.createElement("div");
-
-        //   this.domElm.id = "feedback";
-        //   this.domElm.style.width = 100 + "vh";
-        //   this.domElm.style.height = 100 + "vh";
-        //   //this.domElm.style.bottom = this.posY + "vh";
-        //   //this.domElm.style.left = this.posX + "vh";
-
-        //   // add feedback
-        //   // add link to timeout.html
-
-        //   const playground = document.getElementById("playground");
-        //   playground.appendChild(this.domElm);
-        // }
       }
     }, 1000);
   }
@@ -221,11 +189,6 @@ class Level2 extends Game {
       });
     }, 50);
   }
-
-  // call new instances of newly made sharks, surfers and helicopters (new array?)
-
-  // const levelTwo = new Level2();
-  //     levelTwo.start();
 }
 
 class Shark {
@@ -357,10 +320,6 @@ class Helicopter {
     this.posX += 1.35;
     this.domElm.style.left = this.posX + "vh";
   }
-  // moveLeft() {
-  //     this.posX -= 1;
-  //     this.domElm.style.left = this.posX + "vh";
-  //   }
 }
 ////////////////////////////////////// global scope //////////////////////////////////////
 
