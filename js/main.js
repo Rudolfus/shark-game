@@ -94,6 +94,7 @@ class Game {
       
       document.querySelector("#counter");
       counter.innerText = this.counter;
+      setTimeout
       snackSound.play();
     }
   
@@ -106,9 +107,20 @@ class Game {
       this.shark.posY < helicopter.posY + helicopter.height &&
       this.shark.height + this.shark.posY > helicopter.posY;
 
+    let lives = 2;
+
     if (isCollision) {
       location.href = "./gameover.html";
+      // livesCounter -= 1;
+
+      // document.querySelector("#lives");
+      // lives.innerText = livesCounter;
+      
+        // if (lives === 0) {
+        //   location.href = "./gameover.html";
+        // }
     }
+    
   }
 
   removeSurferIfOutside(surfer) {
@@ -121,7 +133,7 @@ class Game {
 
   removeHelicopterIfOutside(helicopter) {
     // ckecking if helicopter has moved out of screen
-    if (helicopter.posX > 100) {
+    if (helicopter.posX > 145) {
       helicopter.domElm.remove();
       this.helicopters.shift();
     }
@@ -153,6 +165,23 @@ class Game {
           feedback = "Wow! You were on FIRE! 🔥 ⚡️ ";
           // alert(feedback);
         }
+
+        // createDomElm() {
+        //   this.domElm = document.createElement("div");
+      
+        //   this.domElm.id = "feedback";
+        //   this.domElm.style.width = 100 + "vh";
+        //   this.domElm.style.height = 100 + "vh";
+        //   //this.domElm.style.bottom = this.posY + "vh";
+        //   //this.domElm.style.left = this.posX + "vh";
+
+        //   // add feedback
+        //   // add link to timeout.html
+      
+        //   const playground = document.getElementById("playground");
+        //   playground.appendChild(this.domElm);
+        // }
+
       }
     }, 1000);
   }
@@ -163,7 +192,7 @@ class Shark {
     this.width = 5;
     this.height = 5;
     
-    this.posX = 50 - this.width * 0.5;
+    this.posX = 92 - this.width * 0.5;
     this.posY = 1;
 
     this.domElm = null;
@@ -185,14 +214,14 @@ class Shark {
   }
 
   moveLeft() {
-    if (this.posX > 1) {
+    if (this.posX > 42) {
       this.posX -= 1;
       this.domElm.style.left = this.posX + "vh";
     }
   }
 
   moveRight() {
-    if (this.posX < 94) {
+    if (this.posX < 135) {
       this.posX += 1;
       this.domElm.style.left = this.posX + "vh";
     }
@@ -224,7 +253,7 @@ class Surfer {
       return rndInt;
     }
 
-    this.posX = randomIntFromInterval(30, 70);
+    this.posX = randomIntFromInterval(50, 130);
     this.posY = 65;
 
     this.domElm = null;
@@ -262,7 +291,7 @@ class Helicopter {
       return rndInt;
     }
 
-    this.posX = 0; /*randomIntFromInterval(1, 2);*/
+    this.posX = 35; /*randomIntFromInterval(1, 2);*/
     this.posY = randomIntFromInterval(4, 55);
 
     this.domElm = null;
