@@ -26,19 +26,6 @@ class Game {
 
     // updating surfers & helicopters
     setInterval(() => {
-      // let time = 0;
-      // time++;
-
-      // creating new surfers
-      // if (time % 10 === 0) {
-      //     const newSurfer = new Surfer();
-      //     this.surfers.push(newSurfer);
-      // // creating new helicopters
-      // } else if (time % 20 === 0) {
-      //     const newHeli = new Helicopter();
-      //     this.helicopters.push(newHeli);
-      // }
-
       // calling all the other methods
       this.surfers.forEach((surfer) => {
         //move current surfer
@@ -116,8 +103,8 @@ class Game {
       this.livesCounter--;
       helicopter.domElm.remove();
       this.helicopters.shift();
-      // const livesElm = document.querySelector("#lives");
-      // livesElm.innerText = this.livesCounter;
+      const livesElm = document.querySelector("#lives");
+      livesElm.innerText = this.livesCounter;
 
       if (this.livesCounter === 0) {
         location.href = "./gameover.html";
@@ -144,7 +131,7 @@ class Game {
   setTimer() {
     let playtime = 30;
     setInterval(() => {
-      playtime -= 1;
+      playtime--;
 
       document.querySelector("#time");
       time.innerText = playtime;
@@ -234,6 +221,11 @@ class Level2 extends Game {
       });
     }, 50);
   }
+
+  // call new instances of newly made sharks, surfers and helicopters (new array?)
+
+  // const levelTwo = new Level2();
+  //     levelTwo.start();
 }
 
 class Shark {
