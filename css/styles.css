@@ -20,7 +20,8 @@ body {
 #info-box {
     border-color: rgb(23,161,215);
     border-radius: 5%;
-    margin: 2.5% 60% 2.5% 2.5%;
+    margin-left: 35%;
+    margin-top: 5%;
     padding: 2.5%;
 }
 
@@ -31,6 +32,14 @@ body {
     font-size: 25px;
     font-weight: normal;
     text-decoration: none;
+}
+
+#time {
+    color: rgb(203,0,121);
+}
+
+#counter {
+    color: rgb(203,0,121);
 }
 
 #shark{
