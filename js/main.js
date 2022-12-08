@@ -5,7 +5,7 @@ class Game {
     this.helicopters = []; // holds instances of helicopters
     this.shark = new Shark();
     this.counter = 0;
-    // this.newLevel = 0;
+    this.livesCounter = 2;
   }
 
   start() {
@@ -85,19 +85,24 @@ class Game {
       this.shark.posY < surfer.posY + surfer.height &&
       this.shark.height + this.shark.posY > surfer.posY;
 
-    const snackSound = new Audio('./audio/snack-sound.mp3');
-    
+    const snackSound = new Audio("./audio/snack-sound.mp3");
+
     if (isCollision) {
-      this.counter += 1;
+      this.counter++;
       surfer.domElm.remove();
       this.surfers.shift();
-      
+
       document.querySelector("#counter");
       counter.innerText = this.counter;
-      setTimeout
+
       snackSound.play();
     }
-  
+    if (this.counter === 10) {
+      location.href = "./game_2.html";
+
+      const levelTwo = new Level2();
+      levelTwo.start();
+    }
   }
 
   detectCollisionHelicopter(helicopter) {
@@ -107,20 +112,17 @@ class Game {
       this.shark.posY < helicopter.posY + helicopter.height &&
       this.shark.height + this.shark.posY > helicopter.posY;
 
-    let lives = 2;
-
     if (isCollision) {
-      location.href = "./gameover.html";
-      // livesCounter -= 1;
+      this.livesCounter--;
+      helicopter.domElm.remove();
+      this.helicopters.shift();
+      // const livesElm = document.querySelector("#lives");
+      // livesElm.innerText = this.livesCounter;
 
-      // document.querySelector("#lives");
-      // lives.innerText = livesCounter;
-      
-        // if (lives === 0) {
-        //   location.href = "./gameover.html";
-        // }
+      if (this.livesCounter === 0) {
+        location.href = "./gameover.html";
+      }
     }
-    
   }
 
   removeSurferIfOutside(surfer) {
@@ -138,7 +140,7 @@ class Game {
       this.helicopters.shift();
     }
   }
-  
+
   setTimer() {
     let playtime = 30;
     setInterval(() => {
@@ -149,7 +151,7 @@ class Game {
 
       if (playtime === 0) {
         location.href = "./timeout.html";
-        
+
         let feedback = "";
 
         if (this.counter === 0) {
@@ -168,7 +170,7 @@ class Game {
 
         // createDomElm() {
         //   this.domElm = document.createElement("div");
-      
+
         //   this.domElm.id = "feedback";
         //   this.domElm.style.width = 100 + "vh";
         //   this.domElm.style.height = 100 + "vh";
@@ -177,13 +179,60 @@ class Game {
 
         //   // add feedback
         //   // add link to timeout.html
-      
+
         //   const playground = document.getElementById("playground");
         //   playground.appendChild(this.domElm);
         // }
-
       }
     }, 1000);
+  }
+}
+
+class Level2 extends Game {
+  constructor() {
+    super();
+  }
+  start() {
+    this.setTimer();
+    this.addEventListener();
+
+    // new surfers
+    setInterval(() => {
+      const newSurfer = new Surfer();
+      this.surfers.push(newSurfer);
+    }, 1000);
+
+    // new helicopters
+    setInterval(() => {
+      const newHeli = new Helicopter();
+      this.helicopters.push(newHeli);
+    }, 2000);
+
+    // updating surfers & helicopters
+    setInterval(() => {
+      // calling all the other methods
+      this.surfers.forEach((surfer) => {
+        //move current surfer
+        surfer.moveDown();
+
+        // detect collisison with current obstacle
+        this.detectCollisionSurfer(surfer);
+
+        // check if we need to remove the obstacle
+        this.removeSurferIfOutside(surfer);
+      });
+
+      this.helicopters.forEach((helicopter) => {
+        //move current surfer
+        helicopter.moveRight();
+
+        // detect collisison with current obstacle
+        this.detectCollisionHelicopter(helicopter);
+
+        // check if we need to remove the obstacle
+        this.removeHelicopterIfOutside(helicopter);
+      });
+    }, 50);
   }
 }
 
@@ -191,7 +240,7 @@ class Shark {
   constructor() {
     this.width = 5;
     this.height = 5;
-    
+
     this.posX = 92 - this.width * 0.5;
     this.posY = 1;
 

@@ -8,18 +8,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bondi Bite Game Over</title>
+    <title>Bondi Bite</title>
 
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
-<body id="gameover-bg">
-    
-    <img id="game-over" src="./images/gameover2.png" alt="game over">
-    <embed src="./audio/waves-gameover.mp3" loop="true" autostart="true" width="2" height="0">
-    <div>
-        <a id="play-again" href="./game.html">Play again</a>
+<body>
+
+    <div id="playground">
+        <div id="info-box">
+            <div class="info" >Time left: <span id="time">30</span></div>
+            <div class="info" >Surfers eaten: <span id="counter"> 0 </span></div>
+            <span class="info" >Level 2 </span>
+            <div class="info" >Lives: <span id="lives"> 2 </span></div>
+        </div>
     </div>
 
+    <script src="./js/main.js"></script>
 </body>
 </html>
