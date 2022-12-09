@@ -1,135 +1,134 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* game html */
 
 #playground {
-    height: 100vh;
-    width: 100vh;
-    overflow: hidden;
-    background-image: url("../images/background-game.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: auto;
-    margin-left: auto;
+  height: 100vh;
+  width: 100vh;
+  overflow: hidden;
+  background-image: url("../images/background-game.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #info-box1 {
-    margin-left: 37%;
-    margin-top: 7%;
+  margin-left: 37%;
+  margin-top: 7%;
 }
 
 #info-box2 {
-    border: rgb(23,161,215);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  border: rgb(23, 161, 215);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .info {
-    color: rgb(23,161,215);
-    opacity: unset;
-    font-family: 'Pacifico';
-    font-size: 25px;
-    font-weight: normal;
-    text-decoration: none;
+  color: rgb(23, 161, 215);
+  opacity: unset;
+  font-family: "Pacifico";
+  font-size: 25px;
+  font-weight: normal;
+  text-decoration: none;
 }
 
 #level {
-    color: rgb(255, 132, 0);
-    font-family: 'Pacifico';
-    font-size: 50px;
-    font-weight: normal;
-    text-decoration: none;
-    margin-left: 5%;
-    margin-top: 10%;
+  color: rgb(255, 132, 0);
+  font-family: "Pacifico";
+  font-size: 50px;
+  font-weight: normal;
+  text-decoration: none;
+  margin-left: 5%;
+  margin-top: 10%;
 }
 
 #time {
-    color: rgb(203,0,121);
+  color: rgb(203, 0, 121);
 }
 
 #counter {
-    color: rgb(203,0,121);
+  color: rgb(203, 0, 121);
 }
 
-#shark{
-    position: absolute;
-    background-color: #d97e59;
-    background-image: url("../images/fin.png");
-    background-size: contain;
+#shark {
+  position: absolute;
+  background-color: #d97e59;
+  background-image: url("../images/fin.png");
+  background-size: contain;
 }
 
 .surfer {
-    position: absolute;
-    background-color: #a459d9;
-    background-image: url("../images/surfer.png");
-    background-size: contain;
+  position: absolute;
+  background-color: #a459d9;
+  background-image: url("../images/surfer.png");
+  background-size: contain;
 }
 
-.helicopter{
-    position: absolute;
-    background-color: #d9bd59;
-    background-image: url("../images/helicopter.png");
-    background-size: contain;
+.helicopter {
+  position: absolute;
+  background-color: #d9bd59;
+  background-image: url("../images/helicopter.png");
+  background-size: contain;
 }
-
 
 /* gameover html */
 
 #gameover-bg {
-    background-color: #110035;
+  background-color: #110035;
 }
 
 #game-over {
-    width: 100%;
+  width: 100%;
 }
 
 #play-again {
-    opacity: 0.75;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #1177fd;
-    -webkit-text-stroke: 0.25px #110035;
+  opacity: 0.75;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1177fd;
+  -webkit-text-stroke: 0.25px #110035;
 }
 
 #play-again:hover {
-    opacity: 1;
-  }
+  opacity: 1;
+}
 
 /* timeout html */
 
 #still-hungry {
-    opacity: 0.75;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    font-size: 60px;
-    transform: translate(-50%, -50%);
-    color: #7fffe0;
-    -webkit-text-stroke: 0.25px #4ca48f;
+  opacity: 0.75;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-size: 60px;
+  transform: translate(-50%, -50%);
+  color: #7fffe0;
+  -webkit-text-stroke: 0.25px #4ca48f;
 }
 
 #still-hungry:hover {
-    opacity: 1;
-  }
+  opacity: 1;
+}
 
 #timeout-bg {
-    background-color: rgb(248, 229, 193);
+  background-color: rgb(248, 229, 193);
 }
 a {
-    color: #d97e59;
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: flex-end;
+  color: #d97e59;
+  font-family: "Pacifico", cursive;
+  font-size: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
 }
